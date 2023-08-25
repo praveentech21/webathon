@@ -43,18 +43,13 @@
 <div id="container600">
 <!-- Use"containerfull" for 100% width. For fixed width, use "container980", "container760" or "container600" (the number is the layout width in pixels). -->
 	<div id="header">
-		<h1><a href="index.php">Code Master 2018</a></h1>
+		<h1><a href="index.html">Code Master 2018</a></h1>
 		<h2>The Annual Online Programming Challenge of SRKREC</h2>
 	</div>
 <br style="clear: both;" />
-			<?php
-
-if(!isset($_POST['code']))
-{
-print "
-<form name='feedback' action='";
-echo $_SERVER['PHP_SELF'];
-print "' method='post' onSubmit='return validate();'>
+			
+<form name='feedback' action=';
+ method='post' onSubmit='return validate();'>
 <table align='center' border='0' width='70%' cellpadding='5' cellspacing='5'>
 <tr><th style='font-size:12px;'>Q#1. Rate the overall experience of Code Master 2018.</th></tr>
 <tr><th align='left' valign='middle' style='padding-left:10px;'>
@@ -104,84 +99,12 @@ print "' method='post' onSubmit='return validate();'>
 ";
 echo "<tr><td align='left' valign='middle' style='padding-left:150px;'><br><input type='submit' value='SUBMIT FEEDBACK' style='background-color:#DC143C; color:#ffffff; padding:5px; font-weight: bold;'></td></tr>
 </table>
-</form>";
-}
+</form>"
 
-if(isset($_POST['code']))
-   {
-    $q1=$_POST['q1'];
-    $q2=$_POST['q2'];
-    $q3=$_POST['q3'];
-    $feedback=addslashes(trim($_POST['q6']));	
-    $email=addslashes(trim(strtolower($_POST['email'])));	
-    $code=addslashes(trim($_POST['code']));	
-    $dept=$_POST['dept'];
-
-	include "connect.php";
-	
-	if($email == "")
-	 {
-    	$email="Anonymous";
-     }
-
-	   
-    if($code != "code#1980")
-	    { 
-     	 print "<br><br><br><center><font color='red' size='4'><b>INVALID SECRET CODE!</b></font></center><br>";
-      	 echo "<div align='center'><a href='feedback.php'><b>Go Back To Feedback Form</b></a></div>";
-		 echo "<br><br><br><br><br><br><br><br>";	
-		 include "registration/footer.php";
-
-        }
-       else 
-	   {    
-   		   mysqli_query($conn, "insert into feedback (q1, q2, q3, feedback, email, dept) values ($q1, $q2, $q3, '$feedback', '$email', '$dept');") || die (mysql_error());		
-		   print "<center><br><br>";
-		   print "<font color='green' size='4'><b>Your Feedback Has Been Successfully Submitted!</b></font></center><br>";
-    	   echo "<br><br><br><br><br><br><br><br>";	
- 		   include "registration/footer.php";
-
-		   require_once('registration/email/classes/class.phpmailer.php');
-  	       include("class.smtp.php"); // optional, gets called from within class.phpmailer.php if not already loaded		
-		
-		   $mail = new PHPMailer();
-
-		   $mail->IsSMTP(); // telling the class to use SMTP
-		   $mail->Host       = "smtp.gmail.com"; // SMTP server
-		   $mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
-		   $mail->SMTPAuth   = true;                  // enable SMTP authentication
-		   $mail->SMTPSecure = "tls";                 // sets the prefix to the servier
-		   $mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
-		   $mail->Port       = 587;                   // set the SMTP port for the GMAIL server
-		   $mail->Username   = "techcenter.srkr@gmail.com";  // GMAIL username
-		   $mail->Password   = "tech@8080";            // GMAIL password
-
-		   $mail->SetFrom('techcenter.srkr@gmail.com', 'Code Master 2018, SRKR');
-
-    	   if($email != "")
-         	{
-   	           $mail->AddReplyTo($email);
-	        }
-
-		   $mail->Subject = "Code Master 2018 Feedback!";
-
-		   $mail->Body = "FEEDBACK:\n\nSo Overall Experience: $q1\n Questions Quality: $q2\n Technology(Moodle) Rating: $q3\n\n General Feedback: $feedback\n Batch: $dept\n\n ~$email";
-
-		   $mail->AddAddress("suresh.mudunuri@srkrec.edu.in");
-
-		   $mail->Send();		
-           include "registration/footer.php";
-   } 	
-     
-	mysql_close($conn);  
-	
- }		
-
-?>			
 
 
 		<div class="clear">&nbsp;</div>
-<?php include "registration/footer.php"; ?> 
+
 <script type="text/javascript">
  		
 function validate()

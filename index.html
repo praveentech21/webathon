@@ -1,20 +1,3 @@
-<?php
-
-include "connect.php";
-
-$result=mysqli_query($conn, "SELECT * FROM payments;");
-$total=mysqli_num_rows($result);
-
-$result=mysqli_query($conn, "SELECT * FROM payments where language='C';");
-$c=mysqli_num_rows($result);
-
-$result=mysqli_query($conn, "SELECT * FROM payments where language='PYTHON';");
-$python=mysqli_num_rows($result);
-
-$result=mysqli_query($conn, "SELECT * FROM payments where language='JAVA';");
-$java=mysqli_num_rows($result);
-
-?>
 <!DOCTYPE html>
 <!--
 Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter Bootstrap 3.3.4
@@ -96,12 +79,12 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
 <body class="menu-always-on-top">
     <!-- BEGIN STYLE CUSTOMIZER -->
     <div class="color-panel">
-		<div class="color-mode-icons icon-color"><a href='ranks.php' style='color:#FFF'>WINNERS 2018</a></div>
+		<div class="color-mode-icons icon-color"><a href='ranks.html' style='color:#FFF'>WINNERS 2018</a></div>
         <div class="color-mode-icons icon-color-close"></div>
         <div class="color-mode">
 			
 <!--
-            <form class="contact-form" method='post' action='register_submit.php' onSubmit="return register();">
+            <form class="contact-form" method='post' action='register_submit.html' onSubmit="return register();">
              <input type="text" name='rollno' id="rollno" placeholder="Your Roll Number..." class="form-control" autocomplete="on" autofocus>
              <input type="text" name='name' id="name" placeholder="Your Full Name..." class="form-control" autocomplete="on">
              <select name='batch' id='batch' class="form-control" style='color:#C91E3E;'>
@@ -295,7 +278,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                             </ul>
                         </div>
                         <div class="pricing-footer">
-                <a href="rules.php#l1" class="zoom valign-center btn btn-default">More Details</a>
+                <a href="rules.html#l1" class="zoom valign-center btn btn-default">More Details</a>
                         </div>
                     </div>
                 </div>
@@ -319,7 +302,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                             </ul>
                         </div>
                         <div class="pricing-footer">
-                        <a href="rules.php#l2" class="zoom valign-center btn btn-default">More Details</a>
+                        <a href="rules.html#l2" class="zoom valign-center btn btn-default">More Details</a>
                         </div>
                     </div>
                 </div>
@@ -343,7 +326,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                             </ul>
                         </div>
                         <div class="pricing-footer">
-                           <a href="rules.php#l3" class="zoom valign-center btn btn-default">More Details</a>
+                           <a href="rules.html#l3" class="zoom valign-center btn btn-default">More Details</a>
                         </div>
                     </div>
                 </div>
@@ -426,28 +409,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
     </div>
     <!-- Message block END -->
 
-<?php
 
-$cser=mysqli_query($conn, "SELECT count(*) FROM payments p, registrations r where r.rollno=p.rollno and r.dept='CSE';");
-$cse=mysqli_fetch_row($cser);
-
-$itr=mysqli_query($conn, "SELECT count(*) FROM payments p, registrations r where r.rollno=p.rollno and r.dept='IT';");
-$it=mysqli_fetch_row($itr);
-
-$ecer=mysqli_query($conn, "SELECT count(*) FROM payments p, registrations r where r.rollno=p.rollno and r.dept='ECE';");
-$ece=mysqli_fetch_row($ecer);
-
-$eeer=mysqli_query($conn, "SELECT count(*) FROM payments p, registrations r where r.rollno=p.rollno and r.dept='EEE';");
-$eee=mysqli_fetch_row($eeer);
-
-$mechr=mysqli_query($conn, "SELECT count(*) FROM payments p, registrations r where r.rollno=p.rollno and r.dept='MECH';");
-$mech=mysqli_fetch_row($mechr);
-
-$civilr=mysqli_query($conn, "SELECT count(*) FROM payments p, registrations r where r.rollno=p.rollno and r.dept='CIVIL';");
-$civil=mysqli_fetch_row($civilr);
-
-
-?>
     <!-- Portfolio block BEGIN -->
     <div class="portfolio-block content content-center" id="portfolio">
         <div class="container">
@@ -456,41 +418,41 @@ $civil=mysqli_fetch_row($civilr);
         <div class="row">
             <div class="item col-md-2 col-sm-6 col-xs-12">
                 <img src="assets/onepage/img/portfolio/civil.jpg" alt="CIVIL" class="img-responsive">
-<!--                <a href="civil.php" class="zoom valign-center"> -->
-		        <a href="leaderboard.php?dept=CIVIL" class="zoom valign-center">
+<!--                <a href="civil.html" class="zoom valign-center"> -->
+		        <a href="leaderboard.html?dept=CIVIL" class="zoom valign-center">
                     <div class="valign-center-elem">
                         <strong>Civil Engineering</strong>
-                        <em><br><br><br>Registered: <?php echo $civil[0]; ?><br><br></em>
+                        <em><br><br><br>Registered: <br><br></em>
                         <b>View CIVIL LeaderBoard</b>
                     </div>
                 </a>
             </div>
             <div class="item col-md-2 col-sm-6 col-xs-12">
                 <img src="assets/onepage/img/portfolio/cse.jpg" alt="CSE" class="img-responsive">
-		        <a href="leaderboard.php?dept=CSE" class="zoom valign-center">
+		        <a href="leaderboard.html?dept=CSE" class="zoom valign-center">
                     <div class="valign-center-elem">
                         <strong>Computer Science & Engineering</strong>
-                        <em><br><br>Registered:  <?php echo $cse[0]; ?><br><br></em>
+                        <em><br><br>Registered:  <br><br></em>
                         <b>View CSE LeaderBoard</b>
                     </div>
                 </a>
             </div>
             <div class="item col-md-2 col-sm-6 col-xs-12">
                 <img src="assets/onepage/img/portfolio/ece.jpg" alt="ECE" class="img-responsive">
-		        <a href="leaderboard.php?dept=ECE" class="zoom valign-center">
+		        <a href="leaderboard.html?dept=ECE" class="zoom valign-center">
                     <div class="valign-center-elem">
                         <strong>Electronics & Communication Engineering</strong>
-                        <em><br>Registered:  <?php echo $ece[0]; ?><br><br></em>
+                        <em><br>Registered:  <br><br></em>
                         <b>View ECE LeaderBoard</b>
                     </div>
                 </a>
             </div>
             <div class="item col-md-2 col-sm-6 col-xs-12">
                 <img src="assets/onepage/img/portfolio/eee.jpg" alt="EEE" class="img-responsive">
-		        <a href="leaderboard.php?dept=EEE" class="zoom valign-center">
+		        <a href="leaderboard.html?dept=EEE" class="zoom valign-center">
                     <div class="valign-center-elem">
                         <strong>Electrical & Electronics Engineering</strong>
-                        <em><br>Registered:  <?php echo $eee[0]; ?><br><br></em>
+                        <em><br>Registered:  <br><br></em>
                         <b>View EEE LeaderBoard</b>
                     </div>
                 </a>
@@ -498,20 +460,20 @@ $civil=mysqli_fetch_row($civilr);
 
             <div class="item col-md-2 col-sm-6 col-xs-12">
                 <img src="assets/onepage/img/portfolio/it.jpg" alt="IT" class="img-responsive">
-		        <a href="leaderboard.php?dept=IT" class="zoom valign-center">
+		        <a href="leaderboard.html?dept=IT" class="zoom valign-center">
                     <div class="valign-center-elem">
                         <strong>Information Technology</strong>
-                        <em><br><br>Registered:  <?php echo $it[0]; ?><br><br></em>
+                        <em><br><br>Registered:  <br><br></em>
                         <b>View IT LeaderBoard</b>
                     </div>
                 </a>
             </div>
             <div class="item col-md-2 col-sm-6 col-xs-12">
                 <img src="assets/onepage/img/portfolio/mech.jpg" alt="MECH" class="img-responsive">
-		        <a href="leaderboard.php?dept=MECH" class="zoom valign-center">
+		        <a href="leaderboard.html?dept=MECH" class="zoom valign-center">
                     <div class="valign-center-elem">
                         <strong>Mechanical Engineering</strong>
-                        <em><br><br>Registered:  <?php echo $mech[0]; ?><br><br></em>
+                        <em><br><br>Registered:  <br><br></em>
                         <b>View MECH LeaderBoard</b>
                     </div>
                 </a>
@@ -633,32 +595,32 @@ $civil=mysqli_fetch_row($civilr);
     <div class="facts-block content content-center" id="facts-block">
 
 
-          <a href="ranks.php" target="_blank" class="btn blink" style='background-color:#C91E3E;color:#ffff; font-size:18px;box-shadow: 3px 3px 1px white;'><b>REGISTRATIONS CLOSED</b></a>
+          <a href="ranks.html" target="_blank" class="btn blink" style='background-color:#C91E3E;color:#ffff; font-size:18px;box-shadow: 3px 3px 1px white;'><b>REGISTRATIONS CLOSED</b></a>
 <br><br><br>
         <h2>Code Master 2018 Registration Stats</h2>
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="item">
-                        <strong><?php echo $total; ?></strong>
+                        <strong></strong>
                         Total Registrations
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="item">
-                        <strong><?php echo $c; ?></strong>
+                        <strong></strong>
                         Registered For C
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="item">
-                        <strong><?php echo $java; ?></strong>
+                        <strong></strong>
                         Registered For JAVA
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="item">
-                        <strong><?php echo $python; ?></strong>
+                        <strong></strong>
                         Registered For PYTHON
                     </div>
                 </div>
